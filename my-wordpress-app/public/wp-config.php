@@ -20,22 +20,38 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'database_name_here' );
+//Using environment variables for DB connection information
 
-/** Database username */
-define( 'DB_USER', 'username_here' );
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
 
-/** Database password */
-define( 'DB_PASSWORD', 'password_here' );
+$connectstr_dbhost = getenv('DATABASE_HOST');
+$connectstr_dbusername = getenv('DATABASE_USERNAME');
+$connectstr_dbpassword = getenv('DATABASE_PASSWORD');
+$connectst_dbname = getenv('DATABASE_NAME');
 
-/** Database hostname */
-define( 'DB_HOST', 'localhost' );
+/** MySQL database name */
+define('DB_NAME', $connectst_dbname);
 
-/** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+/** MySQL database username */
+define('DB_USER', $connectstr_dbusername);
 
-/** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+/** MySQL database password */
+define('DB_PASSWORD',$connectstr_dbpassword);
+
+/** MySQL hostname */
+define('DB_HOST', $connectstr_dbhost);
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
+
+
+/** SSL*/
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+
 
 /**#@+
  * Authentication unique keys and salts.

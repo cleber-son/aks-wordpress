@@ -1,0 +1,124 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpressnginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpressnginx
+  template:
+    metadata:
+      labels:
+        app: wordpressnginx
+    spec:
+      containers:
+        - name: wordpressnginx
+          image: docker.io/bitnami/wordpress-nginx:6
+          env:
+          - name: WORDPRESS_SKIP_INSTALL
+            value: 'no'
+          - name: MARIADB_HOST
+            value: 'mariadbwordpress'                 
+          - name: MARIADB_PORT_NUMBER
+            value: '3305'  
+          - name: WORDPRESS_DATABASE_NAME
+            value: 'db_wordpress'
+          - name: WORDPRESS_DATABASE_USER
+            value: 'user_db'                 
+          - name: WORDPRESS_DATABASE_PASSWORD
+            value: 'fimdenoite01'  
+          - name: ALLOW_EMPTY_PASSWORD 
+            value: 'no'
+          - name: WORDPRESS_USERNAME 
+            value: 'admin'                
+          - name: WORDPRESS_PASSWORD
+            value: 'fimdenoite01'  
+          - name: WORDPRESS_EMAIL
+            value: 'contato@raizenproject.com'
+          - name: WORDPRESS_FIRST_NAME
+            value: Raizen               
+          - name: WORDPRESS_LAST_NAME 
+            value: 'DevOps'  
+          - name: WORDPRESS_BLOG_NAME 
+            value: 'RaizenDevOps'     
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            volumeMounts:
+              mountPath: "/bitnami"
+              name: wordpress-storage
+            ports:
+            - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadbwordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadbwordpress
+  template:
+    metadata:
+      labels:
+        app: mariadbwordpress
+    spec:
+      containers:
+        - name: mariadbwordpress
+          image: docker.io/bitnami/mariadb:10.6
+          env:
+          - name: MARIADB_DATABASE
+            value: 'db_wordpress'
+          - name: MARIADB_PORT_NUMBER
+            value: '3305'                 
+          - name: MARIADB_ROOT_USER
+            value: 'user_db'  
+          - name: MARIADB_ROOT_PASSWORD
+            value: 'fimdenoite01'
+          - name: ALLOW_EMPTY_PASSWORD
+            value: 'no'    
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+            volumeMounts:
+              mountPath: "/bitnami"
+              name: mariadb-storage
+            ports:
+            - containerPort: 3305
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-ngnix-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: wordpress-blog
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3305
+    protocol: TCP
+  selector:
+    app: mariadbwordpress
+
+
+
