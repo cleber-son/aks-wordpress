@@ -37,7 +37,7 @@ spec:
           - name: WORDPRESS_EMAIL
             value: 'contato@raizenproject.com'
           - name: WORDPRESS_FIRST_NAME
-            value: Raizen               
+            value: 'Raizen'               
           - name: WORDPRESS_LAST_NAME 
             value: 'DevOps'  
           - name: WORDPRESS_BLOG_NAME 
