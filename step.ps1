@@ -40,7 +40,21 @@ kubectl get service php-svc --watch
 
 az aks check-acr --resource-group wordpress-RG --name AKSWordPress --acr acrwordraizenproject.azurecr.io
 
+az aks show --resource-group wordpress-RG \
+    --name AKSWordPress \
+    --query servicePrincipalProfile.clientId \
+    --output tsv
 
+    az aks check-acr --resource-group wordpress-RG --name AKSWordPress --acr acrwordraizenproject.azurecr.io
+
+    az role assignment list --scope /subscriptions/f8c7fc4f-2a8d-4162-944b-0b26de3993e5/resourceGroups/wordpress-RG/providers/Microsoft.ContainerRegistry/registries/AKSWordPress -o table
+
+    az role assignment list --scope /subscriptions/f8c7fc4f-2a8d-4162-944b-0b26de3993e5/resourceGroups/wordpress-RG/providers/Microsoft.ContainerRegistry/registries/acrwordraizenproject -o table
+
+    az aks show --resource-group wordpress-RG \
+    --name AKSWordPress \
+    --query servicePrincipalProfile.clientId \
+    --output tsv
 
 
 
