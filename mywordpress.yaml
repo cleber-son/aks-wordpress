@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: wordpress-blog  
-        image: acrwordpressdocker.azurecr.io/myblog2:latest
+        image: acrwordraizenproject.azurecr.io/mybloglive:v1
         ports:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "bancowordpress-raizen.mysql.database.azure.com" #Update here
+          value: "server340914729.mysql.database.azure.com" #Update here
         - name: DATABASE_USERNAME
-          value: "admin_raizen"  #Update here
+          value: "vulgarparrot1"  #Update here
         - name: DATABASE_PASSWORD
           value: "Fimdenoite01"  #Update here
         - name: DATABASE_NAME
