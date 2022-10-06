@@ -61,7 +61,7 @@ az aks show --resource-group wordpress-RG \
 
 
 
-
+ 
 DEPOIS
 FROM wordpress:4.9.1-apache
 
