@@ -19,9 +19,9 @@ spec:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "server340914729.mysql.database.azure.com" #Update here
+          value: "dbprojectraizendev000.mysql.database.azure.com" #Update here
         - name: DATABASE_USERNAME
-          value: "vulgarparrot1"  #Update here
+          value: "admin_raizen_dev"  #Update here
         - name: DATABASE_PASSWORD
           value: "Fimdenoite01"  #Update here
         - name: DATABASE_NAME
