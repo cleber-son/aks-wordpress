@@ -69,8 +69,7 @@ FROM WordPress:4.9.1-apache
  
  RUN chown -R www-data:www-data /var/www/html/
  
- ENTRYPOINT
- ["apache2-foreground"] 
+ ENTRYPOINT ["apache2-foreground"] 
 
 ANTES 
 FROM php:7.2-apache

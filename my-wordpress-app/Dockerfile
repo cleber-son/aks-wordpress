@@ -1,4 +1,4 @@
-FROM WordPress:4.9.1-apache
+FROM wordPress:4.9.1-apache
  
 COPY public/ /var/www/html
  
