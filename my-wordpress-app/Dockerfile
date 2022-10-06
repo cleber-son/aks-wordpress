@@ -4,5 +4,8 @@ COPY public/ /var/www/html
  
 RUN chown -R www-data:www-data /var/www/html/
  
-ENTRYPOINT
-["apache2-foreground"] 
+ENTRYPOINT ["apache2-foreground"] 
+
+
+
+
