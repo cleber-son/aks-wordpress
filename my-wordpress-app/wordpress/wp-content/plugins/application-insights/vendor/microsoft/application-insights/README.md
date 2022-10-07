@@ -1,6 +1,10 @@
 # Application Insights for PHP #
 
-This project extends the Application Insights API surface to support PHP. [Application Insights](http://azure.microsoft.com/en-us/services/application-insights/) is a service that allows developers to keep their application available, performing and succeeding. This PHP module will allow you to send telemetry of various kinds (event, trace, exception, etc.) to the Application Insights service where they can be visualized in the Azure Portal. 
+[![Build Status](https://travis-ci.org/Microsoft/ApplicationInsights-PHP.svg?branch=master)](https://travis-ci.org/Microsoft/ApplicationInsights-PHP) 
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/microsoft/application-insights.svg)](https://packagist.org/packages/microsoft/application-insights)
+
+
+This project extends the Application Insights API surface to support PHP. [Application Insights](http://azure.microsoft.com/en-us/services/application-insights/) is a service that allows developers to keep their application available, performing and succeeding. This PHP module will allow you to send telemetry of various kinds (event, trace, exception, etc.) to the Application Insights service where they can be visualized in the Azure Portal.
 
 ## Requirements ##
 
@@ -10,7 +14,7 @@ For opening the project in Microsoft Visual Studio you will need [PHP Tools for 
 
 ## Installation ##
 
-We've published a package you can find on [Packagist](https://packagist.org/packages/microsoft/application-insights). In order to use it, first, you'll need to get [Composer](https://getcomposer.org/). 
+We've published a package you can find on [Packagist](https://packagist.org/packages/microsoft/application-insights). In order to use it, first, you'll need to get [Composer](https://getcomposer.org/).
 
 Once you've setup your project to use Composer, just add a reference to our package with whichever version you'd like to use to your composer.json file.
 
@@ -51,7 +55,7 @@ $telemetryClient->trackEvent('name of your event', ['MyCustomProperty' => 42, 'M
 $telemetryClient->flush();
 ```
 
-**Sending more than one telemetry item before sending to the service is also supported; the API will batch everythign until you call flush()**
+**Sending more than one telemetry item before sending to the service is also supported; the API will batch everything until you call flush()**
 ```php
 $telemetryClient->trackEvent('name of your event');
 $telemetryClient->trackEvent('name of your second event');
@@ -84,7 +88,7 @@ $telemetryClient->flush();
 
 **Sending a simple message telemetry item with message***
 ```php
-$telemetryClient->trackMessage('myMessage', ['InlineProperty' => 'test_value']);
+$telemetryClient->trackMessage('myMessage', \ApplicationInsights\Channel\Contracts\Message_Severity_Level::INFORMATION, ['InlineProperty' => 'test_value']);
 $telemetryClient->flush();
 ```
 
@@ -105,29 +109,29 @@ $telemetryClient->flush();
 try
 {
     // Do something to throw an exception
-}        
+}
 catch (\Exception $ex)
 {
     $telemetryClient->trackException($ex, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
 	$telemetryClient->flush();
 }
 
-```      
+```
 
 **Registering an exception handler**
 ```php
 class Handle_Exceptions
 {
     private $_telemetryClient;
-    
+
     public function __construct()
     {
         $this->_telemetryClient = new \ApplicationInsights\Telemetry_Client();
 		$this->_telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
-        
+
         set_exception_handler(array($this, 'exceptionHandler'));
     }
-    
+
     function exceptionHandler(\Exception $exception)
     {
         if ($exception != NULL)
@@ -137,4 +141,22 @@ class Handle_Exceptions
         }
     }
 }
+```
+
+**Sending a successful SQL dependency telemetry item**
+```php
+$telemetryClient->trackDependency('MySQL', \ApplicationInsights\Channel\Contracts\Dependency_Type::OTHER, 'SELECT * FROM table;', time(), 122, true);
+$telemetryClient->flush();
+```
+
+**Sending a failed HTTP dependency telemetry item**
+```php
+$telemetryClient->trackDependency('http://example.com/api/method', \ApplicationInsights\Channel\Contracts\Dependency_Type::HTTP, null, time(), 324, false, 503);
+$telemetryClient->flush();
+```
+
+**Sending any other kind dependency telemetry item**
+```php
+$telemetryClient->trackDependency('Whatever Service', \ApplicationInsights\Channel\Contracts\Dependency_Type::OTHER, 'Service Command', time(), 23, true);
+$telemetryClient->flush();
 ```
