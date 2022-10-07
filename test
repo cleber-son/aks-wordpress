@@ -4,3 +4,16 @@ docker run  -e DB_ENV_HOST=[your mysql db url]:[your mysql port number]   -e DB_
 teste
 
 -DB_ENV_NAME $(mysqldestdb) -DB_ENV_USER $(destmysqluser) -DB_ENV_PASSWORD $(destmysqlpass) -DB_ENV_HOST $(destmysqlhost)
+
+
+<publishData><publishProfile profileName="appsrvdev01 - Web Deploy" publishMethod="MSDeploy" publishUrl="appsrvdev01.scm.azurewebsites.net:443" msdeploySite="appsrvdev01" userName="$appsrvdev01" userPWD="eqwFpHlFJEFqwAXlDqs8Jw9itir97b4r7ocuesfGThEL1iPZ4CD7kRoPkxd8" destinationAppUrl="http://appsrvdev01.azurewebsites.net" 
+
+SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile>
+
+<publishProfile profileName="appsrvdev01 - FTP" 
+publishMethod="FTP" 
+publishUrl="ftps://waws-prod-blu-197.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" 
+userName="appsrvdev01\$appsrvdev01" userPWD="eqwFpHlFJEFqwAXlDqs8Jw9itir97b4r7ocuesfGThEL1iPZ4CD7kRoPkxd8" d
+estinationAppUrl="http://appsrvdev01.azurewebsites.net" 
+
+SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="appsrvdev01 - Zip Deploy" publishMethod="ZipDeploy" publishUrl="appsrvdev01.scm.azurewebsites.net:443" userName="$appsrvdev01" userPWD="eqwFpHlFJEFqwAXlDqs8Jw9itir97b4r7ocuesfGThEL1iPZ4CD7kRoPkxd8" destinationAppUrl="http://appsrvdev01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>
