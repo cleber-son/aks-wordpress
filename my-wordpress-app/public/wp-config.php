@@ -22,7 +22,7 @@
 /** The name of the database for WordPress dsadas*/
 $dbname = getenv('DB_ENV_NAME');
 if (empty($dbname)){
-	$dbname = flexibleserverdb;
+	$dbname = 'flexibleserverdb';
 }
 
 $dbuser = getenv('DB_ENV_USER');
@@ -85,6 +85,7 @@ define('NONCE_SALT',       '295856646a159e1b27b92a2f61e6eb1962899984');
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix  = 'wp_';
+
 
 /**
  * For developers: WordPress debugging mode.
