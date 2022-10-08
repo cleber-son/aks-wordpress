@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import unittest
-
+ 
 class TestSite(unittest.TestCase):
     def setUp(self) -> None:
         self.driver = webdriver.Chrome('D:\Teste_Selenium\chromedriver.exe')  # Inicia o browser
