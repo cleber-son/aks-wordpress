@@ -2,7 +2,7 @@
 
 Projeto final - Raizen Tech Experience
 
-DevOps
+DevOps - Projeto Final
 
 ![alt text](https://github.com/cleber-son/aks-wordpress/blob/main/arquitetura.jpeg?raw=true)
 
