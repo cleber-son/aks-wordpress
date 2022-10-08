@@ -34,7 +34,7 @@ sudo docker push acrwordraizenproject.azurecr.io/mybloglive:v1
 
 teste 
 
-Ismalia 
+  
 
 # Deploy the wordpress in the aks
 kubectl apply -f mywordpress.yaml
