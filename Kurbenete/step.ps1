@@ -9,10 +9,10 @@ az group create --location eastus --name wordpress-RG
 # Create the k8s cluster
 az aks create --resource-group wordpress-RG --name AKSWordPress --node-count 2 --generate-ssh-keys
 
-# Create ACR =
+# Create ACR 
 az acr create --resource-group wordpress-RG --name acrwordraizenproject --sku basic
 
-# Create MySQL Server  =
+# Create MySQL Server  
 az mysql flexible-server create --location eastus --resource-group wordpress-RG
 
 # Attach ACR woth AKS
