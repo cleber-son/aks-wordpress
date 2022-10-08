@@ -2,7 +2,7 @@ Connect Az Account
 
 # Login into Azure 
 az login 
-
+ 
 # Create resource azure
 az group create --location eastus --name wordpress-RG     
 
