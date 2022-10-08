@@ -1,6 +1,6 @@
 Connect Az Account
 
-# Login into Azure
+# Login into Azure 
 az login 
 
 # Create resource azure
