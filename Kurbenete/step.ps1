@@ -4,7 +4,7 @@ Connect Az Account
 az login 
 
 # Create resource azure
-az group create --location eastus --name wordpress-RG
+az group create --location eastus --name wordpress-RG 
 
 # Create the k8s cluster
 az aks create --resource-group wordpress-RG --name AKSWordPress --node-count 2 --generate-ssh-keys
