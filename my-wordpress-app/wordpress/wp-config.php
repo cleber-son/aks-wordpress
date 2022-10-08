@@ -25,6 +25,8 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 
+ 
+
 $connectstr_dbhost = getenv('DB_ENV_HOST');
 $connectstr_dbusername = getenv('DB_ENV_USER');
 $connectstr_dbpassword = getenv('DB_ENV_PASSWORD');
