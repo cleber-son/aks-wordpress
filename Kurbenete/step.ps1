@@ -20,7 +20,7 @@ az aks get-credentials --resource-group wordpress-RG --name AKSWordPress
 
 az aks update -n AKSWordPress --resource-group wordpress-RG --attach-acr acrwordraizenproject 
 
-
+ 
 # Create the docker image
 sudo docker build -f Dockerfile.yaml --tag mybloglive:latest . 
 
