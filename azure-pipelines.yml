@@ -43,5 +43,5 @@ stages:
   - job: Test
     displayName: Test
     steps:
-    - script: python print("Hello there!")
-    - script: python /home/vsts/work/r1/a/_wordpressdocker/Teste_Selenium/selenium_test.py
+    - script: python3 print("Hello there!")
+    - script: python3 /home/vsts/work/r1/a/_wordpressdocker/Teste_Selenium/selenium_test.py
