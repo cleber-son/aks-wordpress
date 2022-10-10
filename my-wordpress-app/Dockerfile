@@ -17,7 +17,7 @@ RUN wget https://github.com/elastic/apm-agent-php/archive/refs/tags/v1.6.1.zip \
 	unzip v1.6.1.zip -d zzz \
     cd zzz/apm-agent-php-1.6.1/src/ext \
     phpize \
-    CFLAGS="-std=gnu99" ./configure --enable-elastic_apm \
+    CFLAGS="-std=gnu99" ./configure \
     make clean \
     make \
     sudo make install 
