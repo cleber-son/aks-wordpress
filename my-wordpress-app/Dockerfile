@@ -5,6 +5,8 @@ RUN apt-get update -y
 RUN apt install apt-utils -y
 RUN apt install dpkg -y
 RUN apt install wget -y
+RUN apt install libcurl-dev -y
+RUN apt install libcurl4-openssl-dev -y
 
 RUN chown -R www-data:www-data /var/www/html/
 
@@ -24,6 +26,3 @@ RUN echo 'elastic_apm.service_name = "My service"' > /usr/local/etc/php/conf.d/9
 
 
 ENTRYPOINT ["apache2-foreground"]
-
-
-

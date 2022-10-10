@@ -24,9 +24,9 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-elastic_apm.server_url="https://845f205ff9324b8e8f206bcc6abb2592.apm.us-central1.gcp.cloud.es.io:443"
-elastic_apm.secret_token="hQehvt8IyJJxND4iEy"
-elastic_apm.service_name="My service"
+$elastic_apm.server_url =  get('elastic_apm.server_url')
+$elastic_apm.secret_token =  get('elastic_apm.secret_token')
+$elastic_apm.service_name =  get('elastic_apm.service_name')
  
 
 $connectstr_dbhost = getenv('DB_ENV_HOST');
