@@ -6,15 +6,22 @@ RUN apt install apt-utils -y
 RUN apt install dpkg -y
 RUN apt install wget -y
 RUN apt install curl -y
+RUN apt install git -y
 RUN apt install libcurl4-openssl-dev -y
 
 RUN chown -R www-data:www-data /var/www/html/
 
-RUN wget https://github.com/elastic/apm-agent-php/releases/download/v1.6.1/apm-agent-php_1.6.1_all.deb && dpkg -i apm-agent-php_1.6.1_all.deb
-
+RUN git clone https://github.com/elastic/apm-agent-php.git
+RUN cd apm-agent-php/src/ext \
+    phpize \
+    CFLAGS="-std=gnu99" ./configure --enable-elastic_apm \
+    make clean \
+    make \
+    sudo make install 
 
 
 RUN echo '[elastic]' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
+RUN echo 'extension=elastic_apm.so' >> /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
 RUN echo 'elastic_apm.enabled = true' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
 RUN echo 'elastic_apm.environment = "production"' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
 RUN echo 'lastic_apm.log_level = "INFO"' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
