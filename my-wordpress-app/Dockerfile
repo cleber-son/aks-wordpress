@@ -11,8 +11,8 @@ RUN apt install libcurl4-openssl-dev -y
 
 RUN chown -R www-data:www-data /var/www/html/
 
-RUN git clone https://github.com/elastic/apm-agent-php.git
-RUN cd apm-agent-php/src/ext \
+RUN git clone https://github.com/elastic/apm-agent-php.git \
+    cd apm-agent-php/src/ext \
     phpize \
     CFLAGS="-std=gnu99" ./configure --enable-elastic_apm \
     make clean \
