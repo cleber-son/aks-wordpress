@@ -43,5 +43,6 @@ stages:
   - job: Test
     displayName: Test
     steps:
-    - script: python /home/vsts/work/r1/a/aks-wordpress/Teste_Selenium/selenium_test.py
-      
+    - script: python /home/vsts/work/r1/a/_wordpressdocker/137/aks-wordpress/Teste_Selenium/selenium_test.py
+    - script: python /home/vsts/work/r1/a/_wordpressdocker/aks-wordpress/Teste_Selenium/selenium_test.py
+    - script: python /home/vsts/work/r1/a/_wordpressdocker/Teste_Selenium/selenium_test.py
