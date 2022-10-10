@@ -13,8 +13,8 @@ RUN apt install libcurl4-openssl-dev -y
 RUN chown -R www-data:www-data /var/www/html/
 
 RUN wget https://github.com/elastic/apm-agent-php/archive/refs/tags/v1.6.1.zip \
-	mkdir zzz \
-	unzip v1.6.1.zip -d zzz \
+    mkdir zzz \
+    unzip v1.6.1.zip -d zzz \
     cd zzz/apm-agent-php-1.6.1/src/ext \
     phpize \
     CFLAGS="-std=gnu99" ./configure \
