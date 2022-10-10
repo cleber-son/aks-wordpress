@@ -1,15 +1,18 @@
 FROM wordpress:4.9.1-apache
 COPY wordpress/ /var/www/html
-RUN chown -R www-data:www-data /var/www/html/
 
-RUN mkdir /elastic
+
+RUN mkdir elastic
 RUN cd /elastic
 RUN ls
-RUN chmod +777 /elastic
 RUN apt-get -y update
 RUN apt install apt-utils -y
 RUN apt install dpkg -y
 RUN apt install wget -y
+
+
+RUN chown -R www-data:www-data /var/www/html/
+
 RUN wget https://github.com/elastic/apm-agent-php/releases/download/v1.6.1/apm-agent-php_1.6.1_all.deb
 RUN ls
 RUN pwd
