@@ -3,7 +3,7 @@ COPY wordpress/ /var/www/html
 
 
 RUN mkdir elastic
-RUN cd /elastic
+
 RUN ls
 RUN apt-get -y update
 RUN apt install apt-utils -y
