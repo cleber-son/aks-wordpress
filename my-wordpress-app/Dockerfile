@@ -7,12 +7,15 @@ RUN apt install dpkg -y
 RUN apt install wget -y
 RUN apt install curl -y
 RUN apt install git -y
+RUN apt install unzip -y
 RUN apt install libcurl4-openssl-dev -y
 
 RUN chown -R www-data:www-data /var/www/html/
 
-RUN git clone https://github.com/elastic/apm-agent-php.git \
-    cd apm-agent-php/src/ext \
+RUN wget https://github.com/elastic/apm-agent-php/archive/refs/tags/v1.6.1.zip \
+	mkdir zzz \
+	unzip v1.6.1.zip -d zzz \
+    cd zzz/apm-agent-php-1.6.1/src/ext \
     phpize \
     CFLAGS="-std=gnu99" ./configure --enable-elastic_apm \
     make clean \
