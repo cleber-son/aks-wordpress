@@ -43,22 +43,5 @@ stages:
   - job: Test
     displayName: Test
     steps:
-    - script: |
-          python -m pip install flake8
-          flake8 .
-      displayName: 'Run lint tests'
-    - script: |
-        pip install pytest pytest-azurepipelines
-        pip install pytest-cov
-        pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml
-      displayName: 'pytest'
-    - task: PublishTestResults@2
-      condition: succeededOrFailed()
-      inputs:
-          testResultsFiles: '**/test-*.xml'
-          testRunTitle: 'Publish test results for Python $(python.version)'
-    - task: PublishCodeCoverageResults@1
-      inputs:
-        codeCoverageTool: Cobertura
-        summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    - script: python aks-wordpress/Teste_Selenium/selenium_test.py
       
