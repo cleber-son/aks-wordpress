@@ -4,6 +4,8 @@ RUN chown -R www-data:www-data /var/www/html/
 
 RUN mkdir /elastic
 RUN cd /elastic
+RUN ls
+RUN chmod +777 /elastic
 RUN apt-get -y update
 RUN apt install apt-utils -y
 RUN apt install dpkg -y
