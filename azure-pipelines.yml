@@ -43,5 +43,5 @@ stages:
   - job: Test
     displayName: Test
     steps:
-    - script: python aks-wordpress/Teste_Selenium/selenium_test.py
+    - script: python /home/vsts/work/r1/a/aks-wordpress/Teste_Selenium/selenium_test.py
       
