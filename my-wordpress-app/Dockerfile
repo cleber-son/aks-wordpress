@@ -19,7 +19,7 @@ RUN wget https://github.com/elastic/apm-agent-php/archive/refs/tags/v1.6.1.zip &
     CFLAGS="-std=gnu99" ./configure && \
     make clean && \
     make && \
-    sudo make install 
+    make install 
 
 
 RUN echo '[elastic]' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
