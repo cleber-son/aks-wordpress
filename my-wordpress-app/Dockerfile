@@ -1,19 +1,19 @@
 FROM wordpress:4.9.1-apache
 COPY wordpress/ /var/www/html
 
-RUN apt-get update -y
-RUN apt install apt-utils -y
-RUN apt install dpkg -y
-RUN apt install wget -y
-RUN apt install curl -y
-RUN apt install git -y
-RUN apt install unzip -y
-RUN apt install libcurl4-openssl-dev -y
+RUN apt-get update -y \
+    apt install apt-utils -y \
+    apt install dpkg -y \
+    apt install wget -y \
+    apt install curl -y \
+    apt install unzip -y \
+    apt install libcurl4-openssl-dev -y
 
 RUN chown -R www-data:www-data /var/www/html/
 
-RUN wget https://github.com/elastic/apm-agent-php/archive/refs/tags/v1.6.1.zip \
-    mkdir zzz \
+RUN wget https://github.com/elastic/apm-agent-php/archive/refs/tags/v1.6.1.zip
+
+RUN mkdir zzz \
     unzip v1.6.1.zip -d zzz \
     cd zzz/apm-agent-php-1.6.1/src/ext \
     phpize \
