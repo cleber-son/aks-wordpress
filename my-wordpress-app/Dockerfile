@@ -14,6 +14,7 @@ RUN chown -R www-data:www-data /var/www/html/
 
 RUN wget https://github.com/elastic/apm-agent-php/releases/download/v1.6.1/apm-agent-php_1.6.1_all.deb && dpkg -i apm-agent-php_1.6.1_all.deb
 RUN ls
+RUN ls ..
 RUN pwd
 
 
