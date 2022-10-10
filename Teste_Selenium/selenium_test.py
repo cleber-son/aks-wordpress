@@ -30,7 +30,7 @@ class TestSite(unittest.TestCase):
         self.driver.get('http://dev-tothemoon.azurewebsites.net')
         print(x)
 
-    def test_stress(self): #Teste de carga/stress
+    def test_stress(self): #Teste de carga/ stress
         try:
             with Pool(10) as proc:
                 proc.map(self.payload, range(20))
