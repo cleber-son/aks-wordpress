@@ -32,7 +32,7 @@ RUN echo '[elastic]' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini && \
     echo 'elastic_apm.server_url = "https://845f205ff9324b8e8f206bcc6abb2592.apm.us-central1.gcp.cloud.es.io:443"' >> /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini && \
     echo 'elastic_apm.service_name = "My service"' >> /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini
 
-RUN zzz/
+RUN ls zzz/
 RUN ls /usr/local/etc/php/conf.d/
 
 
