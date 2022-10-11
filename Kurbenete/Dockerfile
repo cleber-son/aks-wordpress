@@ -34,3 +34,5 @@ RUN echo '[elastic]' > /usr/local/etc/php/conf.d/99-elastic-apm-custom.ini && \
 
 ENTRYPOINT ["apache2-foreground"]
   
+
+  
