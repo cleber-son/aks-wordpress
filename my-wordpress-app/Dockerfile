@@ -6,5 +6,5 @@ RUN apt-get update -y && \
 
 RUN chown -R www-data:www-data /var/www/html/
 
-
+    
 ENTRYPOINT ["apache2-foreground"] 
